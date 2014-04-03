@@ -30,7 +30,7 @@ To run from a gateway node in a CDH5 cluster:
 
 This will run the application in a single local process.  If the cluster is running a Spark standalone
 cluster manager, you can replace "-Dspark.master=local" with
-"-Dspark.master=spark://<master host>:<master port>".
+"-Dspark.master=spark://`<master host>`:`<master port>`".
 
 If the cluster is running YARN, you can replace "-Dspark.master=local" with "-Dspark.master=yarn-client".
 
