@@ -1,0 +1,4 @@
+simplesparkapp
+==============
+
+Simple Spark Application
