@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.cloudera.sparkwordcount</groupId>
+  <artifactId>sparkwordcount</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>"Spark Word Count"</name>
+  
+  <repositories>
+    <repository>
+		  <id>scala-tools.org</id>
+		  <name>Scala-tools Maven2 Repository</name>
+		  <url>http://scala-tools.org/repo-releases</url>
+	  </repository>
+	  <repository>
+      <id>maven-hadoop</id>
+      <name>Hadoop Releases</name>
+      <url>https://repository.cloudera.com/content/repositories/releases/</url>
+    </repository>
+    <repository>
+      <id>cloudera-repos</id>
+      <name>Cloudera Repos</name>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+	  <pluginRepository>
+		  <id>scala-tools.org</id>
+		  <name>Scala-tools Maven2 Repository</name>
+		  <url>http://scala-tools.org/repo-releases</url>
+	  </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+	  <plugins>
+      <plugin>
+			  <groupId>org.scala-tools</groupId>
+			  <artifactId>maven-scala-plugin</artifactId>
+        <executions>
+				  <execution>
+					  <goals>
+						  <goal>compile</goal>
+						  <goal>testCompile</goal>
+					  </goals>
+				  </execution>
+			  </executions>
+		  </plugin>
+      <plugin>
+			  <artifactId>maven-compiler-plugin</artifactId>
+			  <configuration>
+				  <source>1.5</source>
+				  <target>1.5</target>
+			  </configuration>
+		  </plugin>
+    </plugins>	
+  </build>
+
+  <dependencies>
+    <dependency>
+		  <groupId>org.scala-lang</groupId>
+		  <artifactId>scala-library</artifactId>
+		  <version>2.10.2</version>
+	  </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.10</artifactId>
+      <version>0.9.0-cdh5.0.0</version>
+    </dependency>
+  </dependencies>
+</project>
