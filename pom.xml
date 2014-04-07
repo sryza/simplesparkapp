@@ -8,11 +8,11 @@
   
   <repositories>
     <repository>
-		  <id>scala-tools.org</id>
-		  <name>Scala-tools Maven2 Repository</name>
-		  <url>http://scala-tools.org/repo-releases</url>
-	  </repository>
-	  <repository>
+      <id>scala-tools.org</id>
+      <name>Scala-tools Maven2 Repository</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </repository>
+    <repository>
       <id>maven-hadoop</id>
       <name>Hadoop Releases</name>
       <url>https://repository.cloudera.com/content/repositories/releases/</url>
@@ -25,43 +25,43 @@
   </repositories>
 
   <pluginRepositories>
-	  <pluginRepository>
-		  <id>scala-tools.org</id>
-		  <name>Scala-tools Maven2 Repository</name>
-		  <url>http://scala-tools.org/repo-releases</url>
-	  </pluginRepository>
+    <pluginRepository>
+      <id>scala-tools.org</id>
+      <name>Scala-tools Maven2 Repository</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </pluginRepository>
   </pluginRepositories>
 
   <build>
-	  <plugins>
+    <plugins>
       <plugin>
-			  <groupId>org.scala-tools</groupId>
-			  <artifactId>maven-scala-plugin</artifactId>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
         <executions>
-				  <execution>
-					  <goals>
-						  <goal>compile</goal>
-						  <goal>testCompile</goal>
-					  </goals>
-				  </execution>
-			  </executions>
-		  </plugin>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
-			  <artifactId>maven-compiler-plugin</artifactId>
-			  <configuration>
-				  <source>1.5</source>
-				  <target>1.5</target>
-			  </configuration>
-		  </plugin>
-    </plugins>	
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>  
   </build>
 
   <dependencies>
     <dependency>
-		  <groupId>org.scala-lang</groupId>
-		  <artifactId>scala-library</artifactId>
-		  <version>2.10.2</version>
-	  </dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>2.10.2</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.10</artifactId>
