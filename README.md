@@ -26,7 +26,7 @@ To run from a gateway node in a CDH5 cluster:
     # app jar:
     CLASSPATH=$CLASSPATH:target/sparkwordcount-0.0.1-SNAPSHOT.jar
 
-    $CONFIG_OPTS="-Dspark.master=local -Dspark.jars=target/sparkwordcount-0.0.1-SNAPSHOT.jar"
+    CONFIG_OPTS="-Dspark.master=local -Dspark.jars=target/sparkwordcount-0.0.1-SNAPSHOT.jar"
     
     $JAVA_HOME/bin/java -cp $CLASSPATH $CONFIG_OPTS com.cloudera.sparkwordcount.SparkWordCount <input file> 2
 
