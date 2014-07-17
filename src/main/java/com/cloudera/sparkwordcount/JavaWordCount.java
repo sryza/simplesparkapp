@@ -43,7 +43,7 @@ public class JavaWordCount {
     );
     
     // count the occurrence of each word
-    JavaPairRDD<String, Integer> counts = tokenized.map(
+    JavaPairRDD<String, Integer> counts = tokenized.mapToPair(
       new PairFunction<String, String, Integer>() {
         @Override
         public Tuple2<String, Integer> call(String s) {
@@ -81,7 +81,7 @@ public class JavaWordCount {
           return chars;
         }
       }
-    ).map(
+    ).mapToPair(
       new PairFunction<Character, Character, Integer>() {
         @Override
         public Tuple2<Character, Integer> call(Character c) {

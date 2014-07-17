@@ -11,30 +11,11 @@ To make a jar:
 
 To run from a gateway node in a CDH5 cluster:
 
-    source /etc/spark/conf/spark-env.sh
-
-    export JAVA_HOME=/usr/java/jdk1.7.0_45-cloudera
-
-    # system jars:
-    CLASSPATH=/etc/hadoop/conf
-    CLASSPATH=$CLASSPATH:$HADOOP_HOME/*:$HADOOP_HOME/lib/*
-    CLASSPATH=$CLASSPATH:$HADOOP_HOME/../hadoop-mapreduce/*:$HADOOP_HOME/../hadoop-mapreduce/lib/*
-    CLASSPATH=$CLASSPATH:$HADOOP_HOME/../hadoop-yarn/*:$HADOOP_HOME/../hadoop-yarn/lib/*
-    CLASSPATH=$CLASSPATH:$HADOOP_HOME/../hadoop-hdfs/*:$HADOOP_HOME/../hadoop-hdfs/lib/*
-    CLASSPATH=$CLASSPATH:$SPARK_HOME/assembly/lib/*
-
-    # app jar:
-    CLASSPATH=$CLASSPATH:target/sparkwordcount-0.0.1-SNAPSHOT.jar
-
-    CONFIG_OPTS="-Dspark.master=local -Dspark.jars=target/sparkwordcount-0.0.1-SNAPSHOT.jar"
-    
-    $JAVA_HOME/bin/java -cp $CLASSPATH $CONFIG_OPTS com.cloudera.sparkwordcount.SparkWordCount <input file> 2
+    spark-submit --class com.cloudera.sparkwordcount.SparkWordCount --master local \
+      target/sparkwordcount-0.0.1-SNAPSHOT.jar <input file> 2
 
 This will run the application in a single local process.  If the cluster is running a Spark standalone
-cluster manager, you can replace "-Dspark.master=local" with
-"-Dspark.master=spark://`<master host>`:`<master port>`".
+cluster manager, you can replace "--master local" with "--master spark://`<master host>`:`<master port>`".
 
-If the cluster is running YARN, you can replace "-Dspark.master=local" with "-Dspark.master=yarn-client".
+If the cluster is running YARN, you can replace "--master local" with "--master yarn".
 
-Future releases will include a "spark-submit" script that abstracts away the pain of building the
-classpath and specifying the cluster manager.
