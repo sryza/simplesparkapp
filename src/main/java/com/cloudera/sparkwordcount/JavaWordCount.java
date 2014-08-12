@@ -64,7 +64,7 @@ public class JavaWordCount {
       new Function<Tuple2<String, Integer>, Boolean>() {
         @Override
         public Boolean call(Tuple2<String, Integer> tup) {
-          return tup._2 >= threshold;
+          return tup._2() >= threshold;
         }
       }
     );
@@ -74,8 +74,8 @@ public class JavaWordCount {
       new FlatMapFunction<Tuple2<String, Integer>, Character>() {
         @Override
         public Iterable<Character> call(Tuple2<String, Integer> s) {
-          Collection<Character> chars = new ArrayList<Character>(s._1.length());
-          for (char c : s._1.toCharArray()) {
+          Collection<Character> chars = new ArrayList<Character>(s._1().length());
+          for (char c : s._1().toCharArray()) {
             chars.add(c);
           }
           return chars;
